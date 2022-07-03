@@ -1,0 +1,30 @@
+{% extends 'base_template.html' %}
+
+{% block titulo %}
+Libros disponibles 
+{% endblock %}
+
+{% block contenido %}
+<h1 style="margin-left:30rem"></h1>
+
+{{message}}
+
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for libro in object_list %}
+
+    <div class="card" style="width: 18rem;">
+        {% if libro.image %}
+        <img src="{{libro.image.url}}" class="card-img-top" >
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{libro.title}}</h5>
+            <p class="card-text">{{libro.resume}}</p>
+            <p class="card-text">{{libro.language}</p>
+            <a href="/products/detail-product/{{product.id}}/" class="btn btn-primary">Ver mas!</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
